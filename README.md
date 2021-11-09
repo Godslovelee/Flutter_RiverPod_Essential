@@ -1,5 +1,5 @@
 # flutter_riverpod_essential
-
+Re-writing the CounterApp to RiverPod
 A Sample coverage of essential Riverpod features
 
 ## Getting Started
