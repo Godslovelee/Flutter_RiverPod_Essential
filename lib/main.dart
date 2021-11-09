@@ -22,6 +22,10 @@ final valueProvider = Provider<int>((ref) {
   return 2;
 });
 
+final counterStateProvider = StateProvider<int>((ref) {
+  return 0;
+});
+
 class MyHomePage extends ConsumerWidget {
   const MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
@@ -29,6 +33,7 @@ class MyHomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final value = watch(valueProvider);
+    final counter = watch(counterStateProvider);
     return Scaffold(body: Center(
       child: Consumer(builder: (context, ScopedReader watch, child) {
 
