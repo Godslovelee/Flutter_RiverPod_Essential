@@ -32,6 +32,13 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Center(
+      child: Consumer(builder: (context, watch, child){
+        final value = watch(valueProvider);
+        return Text(title);
+      }
+
+      ),
+
 
     ));
   }
