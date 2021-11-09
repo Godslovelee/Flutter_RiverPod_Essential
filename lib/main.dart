@@ -34,7 +34,9 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(body: Center(
       child: Consumer(builder: (context, watch, child){
         final value = watch(valueProvider);
-        return Text(title);
+        return Text(
+          'Okay here is: $value'
+        );
       }
 
       ),
