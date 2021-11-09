@@ -40,7 +40,8 @@ class MyHomePage extends ConsumerWidget {
         return Text('Okay here is: ${counter.state}');
       }),
     ),
-    floatingActionButton: FloatingActionButton(onPressed: ()=> context.read(counterStateProvider).state++
+    floatingActionButton: FloatingActionButton(onPressed: ()=> context.read(counterStateProvider).state++,
+
     )
     );
   }
