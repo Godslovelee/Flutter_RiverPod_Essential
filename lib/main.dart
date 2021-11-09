@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ProviderScope(child: MyApp()));
 }
-
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -12,7 +11,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -24,7 +22,6 @@ final valueProvider = Provider<int>((ref) {
   return 2;
 });
 
-
 class MyHomePage extends StatelessWidget {
   const MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
@@ -32,17 +29,10 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Center(
-      child: Consumer(builder: (context, watch, child){
+      child: Consumer(builder: (context, watch, child) {
         final value = watch(valueProvider);
-        return Text(
-          'Okay here is: $value'
-        );
-      }
-
-      ),
-
-
+        return Text('Okay here is: $value');
+      }),
     ));
   }
 }
-
