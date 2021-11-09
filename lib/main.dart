@@ -32,13 +32,16 @@ class MyHomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final value = watch(valueProvider);
+    //final value = watch(valueProvider);
     final counter = watch(counterStateProvider);
     return Scaffold(body: Center(
       child: Consumer(builder: (context, ScopedReader watch, child) {
 
-        return Text('Okay here is: $value');
+        return Text('Okay here is: ${counter.state}');
       }),
-    ));
+    ),
+    floatingActionButton: FloatingActionButton(onPressed: ()=> context.read(counterStateProvider).state++
+    )
+    );
   }
 }
