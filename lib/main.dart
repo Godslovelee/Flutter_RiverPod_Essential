@@ -22,15 +22,16 @@ final valueProvider = Provider<int>((ref) {
   return 2;
 });
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends ConsumerWidget {
   const MyHomePage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ScopedReader watch) {
+    final value = watch(valueProvider);
     return Scaffold(body: Center(
-      child: Consumer(builder: (context, watch, child) {
-        final value = watch(valueProvider);
+      child: Consumer(builder: (context, ScopedReader watch, child) {
+
         return Text('Okay here is: $value');
       }),
     ));
