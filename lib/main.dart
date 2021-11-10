@@ -60,6 +60,6 @@ class MyHomePage extends ConsumerWidget {
 }
 
 class DateTimeClass extends StateNotifier<DateTime>{
-  DateTimeClass(state) : super(state);
+  DateTimeClass(state) : super(DateTime.now());
 
 }
