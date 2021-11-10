@@ -38,7 +38,7 @@ class MyHomePage extends ConsumerWidget {
     return ProviderListener<StateController<int>>(
       provider: counterStateProvider,
         onChange: (context, counterState) =>{
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Value id ${counterState.state}')))
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Value is ${counterState.state}')))
         },
         child: Scaffold(
         body: Center(
