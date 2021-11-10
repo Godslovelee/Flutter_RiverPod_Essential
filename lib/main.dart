@@ -41,6 +41,7 @@ class MyHomePage extends ConsumerWidget {
       }),
     ),
     floatingActionButton: FloatingActionButton(onPressed: ()=> context.read(counterStateProvider).state++,
+      child:Icon(Icons.add)
 
     )
     );
