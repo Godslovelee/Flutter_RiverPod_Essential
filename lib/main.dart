@@ -34,7 +34,14 @@ class MyHomePage extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     //final value = watch(valueProvider);
     final counter = watch(counterStateProvider);
-    return Scaffold(body: Center(
+
+    return ProviderListener<StateController<int>>(
+      provider: counterStateProvider,
+        onChange: (context, counterState) =>{
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Value id ${counterState.state}')))
+        },
+        child: Scaffold(
+        body: Center(
       child: Consumer(builder: (context, ScopedReader watch, child) {
 
         return Text('Okay here is: ${counter.state}');
@@ -44,6 +51,6 @@ class MyHomePage extends ConsumerWidget {
       child:Icon(Icons.add)
 
     )
-    );
+    ));
   }
 }
