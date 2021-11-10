@@ -63,6 +63,8 @@ class MyHomePage extends ConsumerWidget {
 
 
 }
+
+//storing the state outside the class widget tree
 class ClockClass extends StateNotifier<DateTime> {
   ClockClass() : super(DateTime.now()) {
     _timer = Timer.periodic(Duration(seconds: 1), (_) {
