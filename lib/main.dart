@@ -53,4 +53,13 @@ class MyHomePage extends ConsumerWidget {
     )
     ));
   }
+
+
+
+
+}
+
+class DateTimeClass extends StateNotifier{
+  DateTimeClass(state) : super(state);
+
 }
