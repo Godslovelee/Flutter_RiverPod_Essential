@@ -84,3 +84,11 @@ class ClockClass extends StateNotifier<DateTime> {
     return new ClockClass();
   });
 }
+
+class MyHomePage2 extends ConsumerWidget {
+  @override
+  Widget build(BuildContext context, watch) {
+    return Container();
+  }
+}
+
