@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -36,30 +38,44 @@ class MyHomePage extends ConsumerWidget {
     final counter = watch(counterStateProvider);
 
     return ProviderListener<StateController<int>>(
-      provider: counterStateProvider,
-        onChange: (context, counterState) =>{
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Value is ${counterState.state}')))
+        provider: counterStateProvider,
+        onChange: (context, counterState) =>
+        {
+          ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Value is ${counterState.state}')))
         },
         child: Scaffold(
-        body: Center(
-      child: Consumer(builder: (context, ScopedReader watch, child) {
+            body: Center(
+              child: Consumer(builder: (context, ScopedReader watch, child) {
+                return Text('Okay here is: ${counter.state}');
+              }),
+            ),
+            floatingActionButton: FloatingActionButton(onPressed: () =>
+            context
+                .read(counterStateProvider)
+                .state++,
+                child: Icon(Icons.add)
 
-        return Text('Okay here is: ${counter.state}');
-      }),
-    ),
-    floatingActionButton: FloatingActionButton(onPressed: ()=> context.read(counterStateProvider).state++,
-      child:Icon(Icons.add)
-
-    )
-    ));
+            )
+        ));
   }
-
 
 
 
 }
 
-class DateTimeClass extends StateNotifier<DateTime>{
-  DateTimeClass(state) : super(DateTime.now());
+class ClockClass extends StateNotifier<DateTime> {
+  ClockClass() : super(DateTime.now()) {
+    _timer = Timer.periodic(Duration(seconds: 1), (_) {
+      state = DateTime.now();
+    });
+  }
 
+   late Timer _timer;
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    super.dispose();
+  }
 }
