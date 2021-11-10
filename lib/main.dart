@@ -79,4 +79,8 @@ class ClockClass extends StateNotifier<DateTime> {
     _timer.cancel();
     super.dispose();
   }
+  final clockProvider = StateNotifierProvider<ClockClass>((ref){
+
+    return new ClockClass();
+  });
 }
