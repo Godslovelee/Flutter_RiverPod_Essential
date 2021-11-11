@@ -107,6 +107,12 @@ class MyHomePage3 extends ConsumerWidget {
   @override
   Widget build(BuildContext context, watch) {
     final streamValue = watch(streamProvider);
-    return Container();
+    return Scaffold(
+      body: Center(
+          child: streamValue.when(
+              data: (data) => Text("data is: $data"),
+              loading: () => CircularProgressIndicator(),
+              error: (e, str) => Text('Error: $e'))),
+    );
   }
 }
