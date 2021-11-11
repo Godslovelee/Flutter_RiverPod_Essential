@@ -7,17 +7,18 @@ import 'package:intl/intl.dart';
 void main() {
   runApp(ProviderScope(child: MyApp()));
 }
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MyHomePage2()//MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MyHomePage2() //MyHomePage(title: 'Flutter Demo Home Page'),
+        );
   }
 }
 
@@ -40,29 +41,20 @@ class MyHomePage extends ConsumerWidget {
 
     return ProviderListener<StateController<int>>(
         provider: counterStateProvider,
-        onChange: (context, counterState) =>
-        {
-          ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text('Value is ${counterState.state}')))
-        },
+        onChange: (context, counterState) => {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Value is ${counterState.state}')))
+            },
         child: Scaffold(
             body: Center(
               child: Consumer(builder: (context, ScopedReader watch, child) {
                 return Text('Okay here is: ${counter.state}');
               }),
             ),
-            floatingActionButton: FloatingActionButton(onPressed: () =>
-            context
-                .read(counterStateProvider)
-                .state++,
-                child: Icon(Icons.add)
-
-            )
-        ));
+            floatingActionButton: FloatingActionButton(
+                onPressed: () => context.read(counterStateProvider).state++,
+                child: Icon(Icons.add))));
   }
-
-
-
 }
 
 //storing the state outside the class widget tree
@@ -81,10 +73,10 @@ class ClockClass extends StateNotifier<DateTime> {
     super.dispose();
   }
 }
-  final clockProvider = StateNotifierProvider<ClockClass>((ref) {
-    return new ClockClass();
-  });
 
+final clockProvider = StateNotifierProvider<ClockClass>((ref) {
+  return new ClockClass();
+});
 
 class MyHomePage2 extends ConsumerWidget {
   @override
@@ -93,20 +85,27 @@ class MyHomePage2 extends ConsumerWidget {
     final timeFormat = DateFormat.Hms().format(currentTime);
     return Scaffold(
       body: Center(
-        child: Text("This is : $timeFormat"
-        ),
+        child: Text("This is : $timeFormat"),
       ),
     );
   }
 }
 
-final  futureProvider = FutureProvider<int>((ref) async {
+final futureProvider = FutureProvider<int>((ref) async {
   return Future.value(89);
 });
 
-final streamProvider = StreamProvider<int>((ref)  {
-  return Stream.fromIterable([1,2,3,4]);
+final streamProvider = StreamProvider<int>((ref) {
+  return Stream.fromIterable([1, 2, 3, 4]);
 });
 
 //creating homepage3 for future-provider user
 
+class MyHomePage3 extends ConsumerWidget {
+  //const MyHomePage3({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, watch) {
+    return Container();
+  }
+}
