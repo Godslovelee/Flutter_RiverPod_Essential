@@ -110,7 +110,7 @@ class MyHomePage3 extends ConsumerWidget {
     return Scaffold(
       body: Center(
           child: streamValue.when(
-              data: (data) => Text("dataeeee shown is: $data"),
+              data: (data) => Text("data shown is: $data"),
               loading: () => CircularProgressIndicator(),
               error: (e, str) => Text('Error: $e'))),
     );
