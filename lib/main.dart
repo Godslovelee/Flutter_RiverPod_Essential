@@ -100,7 +100,7 @@ class MyHomePage2 extends ConsumerWidget {
   }
 }
 
-final  Provider = FutureProvider<int>((ref) async {
+final  futureProvider = FutureProvider<int>((ref) async {
   return 89;
 });
 
