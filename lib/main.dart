@@ -88,7 +88,7 @@ class ClockClass extends StateNotifier<DateTime> {
 
 class MyHomePage2 extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
+  Widget build(BuildContext context, ScopedReader watch) {
     final currentTime = watch(clockProvider.state);
     final timeFormat = DateFormat.Hms().format(currentTime);
     return Scaffold(
