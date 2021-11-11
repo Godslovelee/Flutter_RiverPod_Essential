@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 
 void main() {
   runApp(ProviderScope(child: MyApp()));
@@ -79,16 +80,23 @@ class ClockClass extends StateNotifier<DateTime> {
     _timer.cancel();
     super.dispose();
   }
-  final clockProvider = StateNotifierProvider<ClockClass>((ref){
-
+}
+  final clockProvider = StateNotifierProvider<ClockClass>((ref) {
     return new ClockClass();
   });
-}
+
 
 class MyHomePage2 extends ConsumerWidget {
   @override
-  Widget build(BuildContext context, watch) {
-    return Container();
+  Widget build(BuildContext context,ScopedReader watch) {
+    final currentTime = watch(clockProvider.state);
+    final timeformat = DateFormat.Hms().format(currentTime);
+    return Scaffold(
+      body: Center(
+        child: Text("This is : $timeformat"
+        ),
+      ),
+    );
   }
 }
 
