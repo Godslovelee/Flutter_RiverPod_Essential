@@ -101,7 +101,11 @@ class MyHomePage2 extends ConsumerWidget {
 }
 
 final  futureProvider = FutureProvider<int>((ref) async {
-  return 89;
+  return Future.value(89);
+});
+
+final streamProvider = StreamProvider<int>((ref)  {
+  return Stream.fromIterable([1,2,3,4]);
 });
 
 
