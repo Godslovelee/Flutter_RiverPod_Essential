@@ -106,6 +106,7 @@ class MyHomePage3 extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, watch) {
+    final streamValue = watch(streamProvider);
     return Container();
   }
 }
