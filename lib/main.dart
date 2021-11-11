@@ -90,10 +90,10 @@ class MyHomePage2 extends ConsumerWidget {
   @override
   Widget build(BuildContext context,ScopedReader watch) {
     final currentTime = watch(clockProvider.state);
-    final timeformat = DateFormat.Hms().format(currentTime);
+    final timeFormat = DateFormat.Hms().format(currentTime);
     return Scaffold(
       body: Center(
-        child: Text("This is : $timeformat"
+        child: Text("This is : $timeFormat"
         ),
       ),
     );
