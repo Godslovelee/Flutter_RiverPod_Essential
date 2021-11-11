@@ -95,7 +95,7 @@ final futureProvider = FutureProvider.autoDispose<int>((ref) async {
   return Future.value(89);
 });
 
-final streamProvider = StreamProvider<int>((ref) {
+final streamProvider = StreamProvider.autoDispose<int>((ref) {
   return Stream.fromIterable([1, 2, 3, 4]);
 });
 
