@@ -13,12 +13,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Flutter Demffo',
+        title: 'Flutter Demff',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
         home: MyHomePage2() //MyHomePage(title: 'Flutter Demo Home Page'),
-        );
+
   }
 }
 
