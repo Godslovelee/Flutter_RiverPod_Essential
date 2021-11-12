@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Riverpod deDemo',
+        title: 'Riverpod deeDemo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
